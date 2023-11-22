@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container">
+  <div class="title">
+    <h4>Registro de usuarios</h4>
+    <button type="button" class="btn btn-primary" routerLink="/add-user">Agregar Usuario</button>
+  </div>
+
+  <table *ngIf="listUsers.length > 0" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" hidden>Id</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Contraseña</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Estado</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listUsers" class="table-active">
+        <td hidden>{{ item.id }}</td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.password }}</td>
+        <td>{{ item.role }}</td>
+        <td>{{ item.active ? 'Activo' : 'Inactivo' }}</td>
+        <td>
+          <button routerLink="/edit-user/{{ item.id }}" type="button" class="btn btn-info btn-sm">Edit</button>
+          <button (click)="deleteUser(item.id!)" type="button" class="btn btn-secondary btn-sm ms-2">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h5 *ngIf="listUsers.length == 0">No hay productos para mostrar</h5>
+  <!-- Agregar el total de productos al pie de la tabla -->
+  <div *ngIf="listUsers.length > 0" class="footer">
+    <p>Total de productos: {{ listUsers.length }}</p>
+  </div>
+</div>

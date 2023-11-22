@@ -1,0 +1,15 @@
+.title {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.pagination
+{
+  padding: 20px 16px;
+  float:right;
+  font-size: 18px;
+}
+
+.pagination::ng-deep .ngx-pagination .current{
+  background: red;
+}

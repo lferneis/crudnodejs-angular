@@ -1,0 +1,42 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="row mt-1">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
+            <div class="card-header text-center">{{ operacion }} Usuario</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="addUser()">
+                    <input formControlName="username" type="text" class="form-control" placeholder="Ingrese el usuario">
+                    <span *ngIf="form.get('username')?.hasError('required') && form.get('username')?.touched">
+                        El campo usuario es <strong>requerido</strong>
+                    </span>
+                    <input formControlName="password" type="password" class="form-control mt-2" placeholder="Ingrese la contraseña">
+                    <span *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched">
+                        El campo contraseña es <strong>requerido</strong>
+                    </span>
+                    <select formControlName="role" class="form-select mt-2" placeholder="Seleccione el Rol">
+                      <option value="Trafico">Trafico</option>
+                      <option value="Cliente">Cliente</option>
+                    </select>
+                    <span *ngIf="form.get('role')?.hasError('required') && form.get('role')?.touched">
+                      El campo Rol es <strong>requerido</strong>
+                    </span>
+                    <select formControlName="active" class="form-select mt-2" placeholder="Seleccione el Estado">
+                      <option value="true">Activo</option>
+                      <option value="false">Inactivo</option>
+                    </select>
+                    <span *ngIf="form.get('active')?.hasError('required') && form.get('active')?.touched">
+                      El campo Estado es <strong>requerido</strong>
+                    </span>
+                    <div class="row mt-2 text-center">
+                        <div class="col-lg-6">
+                            <button routerLink="/list-users" type="button" class="btn btn-secondary">Volver</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

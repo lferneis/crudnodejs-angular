@@ -1,0 +1,44 @@
+<!-- <div class="wrapper">
+    <div *ngIf="!loading" class="body">
+        <img class="logo" src="../../../assets/img/login.png" alt="img login">
+        <h3 class="mb-2">Login</h3>
+        <div class="form-group mb-3 mt-3">
+            <input type="text" [(ngModel)]="username" autocomplete="false" class="form-control" placeholder="Ingrese usuario">
+            <label>Usuario</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" [(ngModel)]="password" autocomplete="false" class="form-control" placeholder="Ingrese password">
+            <label>Password</label>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary btn-lg" (click)="login()">Aceptar</button>
+        </div>
+        <p class="mt-3">No tienes cuenta? <a routerLink="/signIn">Registrar</a></p>
+    </div>
+    
+    <app-progress-bar *ngIf="loading"></app-progress-bar>
+</div> -->
+<div class="wrapper">
+  <div *ngIf="!loading" class="body">
+    
+      
+        <img class="logo" src="../../../assets/img/login.png" alt="img login">
+        <legend>Login</legend>
+        <div class="form-group">
+          <label for="usuario" class="form-label mt-2">Usuario</label>
+          <input type="text" [(ngModel)]="username" class="form-control" id="usuario" aria-describedby="usuario"
+            placeholder="Ingrese el usuario">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="form-label mt-2">Password</label>
+          <input type="password" [(ngModel)]="password" class="form-control" id="exampleInputPassword1"
+            placeholder="Password" autocomplete="off">
+        </div>
+        <div class="d-grid gap-2 mt-4">
+          <button type="button" class="btn btn-primary btn-lg" (click)="login()">Aceptar</button>
+        </div>
+        <p class="mt-3">No tienes cuenta? <a routerLink="/signIn">Registrar</a></p>    
+  </div>
+  <app-progress-bar *ngIf="loading"></app-progress-bar>
+</div>
